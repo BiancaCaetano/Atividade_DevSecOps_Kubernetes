@@ -31,6 +31,28 @@ Digite: ```docker run -d --name rancher --restart=unless-stopped -v /opt/rancher
 - Vá até o terminal e digite : ``` curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
 sudo install minikube-linux-amd64 /usr/local/bin/minikube ```
 
+- Logo após digite : ``` minikube start ```
+- Com o minikube instalado prossiga digitando : ```kubectl get po -A```
+- O minikube pode baixar a versão apropriada do kubectl e você poderá usá-lo assim:```minikube kubectl -- get po -A```
+- Para obter informações adicionais sobre o estado do cluster, o minikube inclui o Kubernetes Dashboard, permitindo que você se adapte facilmente ao seu novo ambiente:
+- ```minikube dashboard ```
+
+- No powershell do Windows:
+
+  - ```New-Item -Path 'c:\' -Name 'minikube' -ItemType Directory -Force Invoke-WebRequest -OutFile 'c:\minikube\minikube.exe' -Uri  'https://github.com/kubernetes/minikube/releases/latest/download/minikube-windows-amd64.exe' -UseBasicParsing```
+  
+  - Adicione o minikube.exebinário ao seu arquivo PATH.
+  
+ ``` $oldPath = [Environment]::GetEnvironmentVariable('Path', [EnvironmentVariableTarget]::Machine) if ($oldPath.Split(';') -inotcontains 'C:\minikube'){ `
+  [Environment]::SetEnvironmentVariable('Path', $('{0};C:\minikube' -f $oldPath), [EnvironmentVariableTarget]::Machine) `} ```
+  
+ - Daí é só repetir o mesmo processo feito nos passos de Linux.
+
+
+
+
+
+
 
 
 
